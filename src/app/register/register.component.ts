@@ -16,11 +16,12 @@ export class RegisterComponent {
     email: '',
     phoneNo: '',
     password: '',
+    gender: ''
   }
   validate = {
     confirmPassword: ''
   }
-  api = ''
+  api = 'http://localhost:3000/customer/register'
 
   constructor(
     private http: HttpClient,
@@ -28,7 +29,7 @@ export class RegisterComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log("here");
+    console.log(this.newUser.gender);
   }
 
   register() {
@@ -43,7 +44,7 @@ export class RegisterComponent {
       })
     }
     else{
-      
+
     }
   }
 
