@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  api = ''
+  api = 'http://localhost:3000/customer/'
 
   user = {
     email: '',
@@ -22,9 +22,20 @@ export class LoginComponent {
     ) {}
 
     login(){
-      this.http.post(this.api,this.user).subscribe({
+      this.http.post(this.api + 'login',this.user).subscribe({
         next: (res: any) => {
-          this.router.navigate(['home']);
+          this.router.navigate(['header']);
+        },
+        error: (error: any) => {
+          console.log(error);
+        }
+      })
+    }
+
+    loginAdmin(){
+      this.http.post(this.api + 'admin',this.user).subscribe({
+        next: (res: any) => {
+          this.router.navigate(['header']);
         },
         error: (error: any) => {
           console.log(error);
