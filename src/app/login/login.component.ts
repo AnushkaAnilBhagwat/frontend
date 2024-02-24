@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  loggedIn = false;
+
   api = 'http://localhost:3000/customer/'
 
   user = {
@@ -21,15 +23,22 @@ export class LoginComponent {
     private router: Router
     ) {}
 
+    ngOnInit() {
+      if(localStorage.getItem('token')){
+        this.loggedIn = true;
+      }
+    }
+
     login(){
-      this.http.post(this.api + 'login',this.user).subscribe({
-        next: (res: any) => {
-          this.router.navigate(['header']);
-        },
-        error: (error: any) => {
-          console.log(error);
-        }
-      })
+        this.http.post(this.api + 'login',this.user).subscribe({
+          next: (res: any) => {
+            localStorage.setItem('token', res.token)
+            this.router.navigate(['header']);
+          },
+          error: (error: any) => {
+            console.log(error);
+          }
+        })
     }
 
     loginAdmin(){

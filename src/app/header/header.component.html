@@ -7,8 +7,11 @@
   <ul>
       <li><a routerLink="/admin-auth">Seller</a></li>
       <li><a href="#">Home</a></li>
-      <li><a routerLink="/login">Login</a></li>
+      <li *ngIf="!loggedIn" ><a routerLink="/register">Register</a></li>
+      <li *ngIf="!loggedIn" ><a routerLink="/login">Login</a></li>
       <li><a href="#">Cart(0)</a></li>
+      <li><a *ngIf="loggedIn" (click)="logOut()">LogOut</a></li>
+
 
   </ul>
   </nav>
