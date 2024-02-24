@@ -4,7 +4,7 @@ import { RegisterComponent } from "./register/register.component";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
 import { LoginComponent } from "./login/login.component";
@@ -22,7 +22,8 @@ import { HeaderComponent } from "./header/header.component";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [provideRouter(routes)],
 
