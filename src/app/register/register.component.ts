@@ -1,10 +1,11 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../Service/auth.service';
 import { validatePassword } from '../Validator/passwordValidators';
 import { CommonModule } from '@angular/common';
+import { NgToastModule, NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-register',
@@ -12,16 +13,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent implements OnInit{
-
+alert: boolean=false
   // api = 'http://localhost:3000/customer/register'
 
   registerForm !:FormGroup
+
+  // http = inject(HttpClient)
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private fb: FormBuilder,
-    private authService : AuthService
+    private authService : AuthService,
+    private toast: NgToastService
   ) {}
 
   ngOnInit(): void {
@@ -46,14 +50,31 @@ export class RegisterComponent implements OnInit{
     
     console.log(this.registerForm.value);
     this.authService.registerService(this.registerForm.value).subscribe({
-      next: (res) => {
+      next: (res: any) => {
+      console.log(res);
+      
+      if(res.status === 201)
+      {
+        this.toast.success({detail:"Success Message",summary:res.msg,duration:5000})
         this.router.navigate(['login']);
+      }
+      else if(res.status === 400)
+      {
+        this.toast.error({detail:"Error Message",summary:res.msg,duration:15000})
+      }
       },
       error: (error: any) => {
+          console.log(error);
+          this.toast.warning({detail:"Warning Message",summary:error.error.msg,duration:5000})
             console.error(error);
           }
     })
 }
+
+closeAlert(){
+  this.alert=false
+}
+
 }
 
 

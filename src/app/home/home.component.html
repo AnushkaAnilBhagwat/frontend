@@ -1,1 +1,53 @@
-<p>home works!</p>
+<nav class="nav">
+  <h1>E-Comm</h1>
+  <div class="d-flex form-inline my-3 my-lg-0">
+      <input class="form-control" type="text" placeholder="Search Products" />
+      <button>Search</button>
+  </div>
+  <ul>
+      <li><a routerLink="/add-product">Add Product</a></li>
+      <li><a routerLink="/register">Register</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      
+      <!-- <li><a href="#">Cart(0)</a></li> -->
+
+  </ul>
+  </nav>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr no</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product Color</th>
+        <th scope="col">Product Category</th>
+        <th scope="col">Product Description</th>
+        <th scope="col">Product Image</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of product; track product._id) {
+      <tr>
+        <th scope="row">{{ $index + 1 }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.color }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td><img src="{{product.image}}" alt=""></td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteProduct(product._id)">
+            DEL
+          </button>
+          <button type="button" class="btn btn-info" (click)="  goToUpdate(product._id)">Edit</button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  
+
+
+
