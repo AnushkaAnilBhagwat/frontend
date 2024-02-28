@@ -40,6 +40,7 @@ alert:boolean=false
           // alert(res.msg);
          if(res.status===200){
           this.toast.success({detail:"Success Message",summary:res.msg,duration:5000})
+          localStorage.setItem('token', res.token)
           this.router.navigate(['header']);
          }
          else if(res.status === 400){
@@ -60,10 +61,10 @@ alert:boolean=false
     }
 
 
-      
+
       // console.log(this.loginForm);
       // console.log("Value :"+this.loginForm.value);
-      
+
       // this.http.post(this.api + 'login',this.loginForm.value).subscribe({
       //   next: (res: any) => {
       //     this.router.navigate(['header']);
