@@ -50,7 +50,7 @@ updateProduct(){
  console.log(this.editProductForm.value);
  
 
- this.productService.updateProductService(this.editProductForm.value + this.id).subscribe({
+ this.productService.updateProductService(this.editProductForm.value, this.id).subscribe({
   next:(res:any)=>{
     console.log(res);
 

@@ -52,6 +52,6 @@ export class AddProductComponent implements OnInit {
   }
 
   gotToView() {
-    this.router.navigate(['/header']);
+    this.router.navigate(['/home']);
   }
 }

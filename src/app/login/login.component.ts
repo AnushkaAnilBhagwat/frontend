@@ -25,6 +25,8 @@ alert:boolean=false
     ) {}
 
     ngOnInit(): void {
+      console.log("hi");
+    
       this.loginForm = this.fb.group({
         email: ['', Validators.required],
         password:['',Validators.required]
@@ -41,7 +43,7 @@ alert:boolean=false
          if(res.status===200){
           this.toast.success({detail:"Success Message",summary:res.msg,duration:5000})
           localStorage.setItem('token', res.token)
-          this.router.navigate(['header']);
+          this.router.navigate(['home']);
          }
          else if(res.status === 400){
           

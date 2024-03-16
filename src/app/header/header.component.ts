@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   loggedIn = false;
 
@@ -16,11 +16,19 @@ export class HeaderComponent {
     private router: Router
     ) {}
 
-  ngOnInit() {
-    if(localStorage.getItem('token')){
-      this.loggedIn = true;
-    }
+  ngOnInit(): void {
+    
+    console.log("method");
+    
+    if(localStorage.getItem('token'))
+    {
+      console.log("token recevied");
+      
+     this.loggedIn = true;
+
+   }
   }
+
 
   logOut() {
     this.loggedIn = false;

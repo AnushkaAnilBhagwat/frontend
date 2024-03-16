@@ -23,9 +23,9 @@ export class ProductService {
     return this.http.delete(`${apiUrls.prodUrl}:id`,deleteObj)
   }
 
-  updateProductService(updateObj: any)
+  updateProductService(updateObj: any, id : any)
   {
-     return this.http.put(`${apiUrls.prodUrl}:id`, updateObj)
+     return this.http.put(`${apiUrls.prodUrl}:`+id, updateObj)
   }
 
 }

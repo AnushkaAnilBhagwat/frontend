@@ -6,10 +6,12 @@ import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'header', pathMatch: 'full'},
+  { path: '', redirectTo:'home', pathMatch:'full'},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'header', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'add-product',component:AddProductComponent},
-  { path: 'edit-product/:id',component: EditComponent}
+  { path: 'edit-product/:id',component: EditComponent},
+  
+
 ];
