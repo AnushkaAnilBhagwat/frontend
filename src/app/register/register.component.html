@@ -29,17 +29,6 @@
         </div>
       </div>
 
-      <div class="col">
-        <label>UserName</label>
-        <input
-          formControlName="userName"
-          type="text"
-          class="form-control" 
-          placeholder="userName"
-        />
-      <span *ngIf="registerForm.hasError('required','userName') && registerForm.controls['userName'].dirty" style="color: red;">*UserName is required</span>
-
-      </div>
 
       <div class="form-group">
         <label>Email address</label>
@@ -58,7 +47,7 @@
       <div class="form-group">
         <label>Phone Number</label>
         <input
-          formControlName="phoneNo"
+          formControlName="phone"
           type="text"
           class="form-control"
           placeholder="Phone Number"
@@ -78,32 +67,11 @@
       <span *ngIf="registerForm.hasError('required','password') && registerForm.controls['password'].dirty" style="color: red;">*Password is required</span>
 
         </div>
-        <div class="col">
-          <label>Confirm Password</label>
-          <input
-            formControlName="confirmPassword"
-            type="password"
-            class="form-control"
-            placeholder="Confirm Password"
-          />
-      <span *ngIf="registerForm.hasError('required','confirmPassword') && registerForm.controls['confirmPassword'].dirty" style="color: red;">*Confirm Password is required</span>
-       <span *ngIf="registerForm.hasError('validatePassword','confirmPassword')"  style="color: red;">Password didn't match</span>
-        </div>
       </div>
-
-      <div class="gender-details-box">
-        <span class="gender-title">Gender</span>
-        <div class="gender-category">
-          <input formControlName="gender" value="male" type="radio">Male
-          <input formControlName="gender" value="female" type="radio">Female
-          <input formControlName="gender" value="other" type="radio">Other
-        </div>
-      </div>
-      <span *ngIf="registerForm.hasError('required','gender') && registerForm.controls['gender'].dirty" style="color: red;">*Gender is required</span>
 
     </div>
     <div class="register-btn">
-      <button (click)="register()" [disabled]="registerForm.invalid"   type="submit" class="btn btn-primary">Register</button>
+      <button (click)="register()" type="submit" class="btn btn-primary">Register</button>
     </div>
   </form>
   </div>

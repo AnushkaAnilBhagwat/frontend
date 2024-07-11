@@ -7,22 +7,28 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
-import { LoginComponent } from "./login/login.component";
 import { HeaderComponent } from "./header/header.component";
-import { AddProductComponent } from "./add-product/add-product.component";
-import { EditComponent } from "./edit/edit.component";
-import { HomeComponent } from "./home/home.component";
 import { NgToastComponent, NgToastModule } from "ng-angular-popup";
+import { VerifiedComponent } from "./verified/verified.component";
+import { LoginComponent } from "./login/login.component";
+import { HomeComponent } from "./home/home.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { ResetPasswordComponent } from "./reset-password/reset-password.component";
+import { PasswordResetComponent } from "./password-reset/password-reset.component";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent,
     HeaderComponent,
-    AddProductComponent,
-    EditComponent,
+    VerifiedComponent,
+    LoginComponent,
     HomeComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    PasswordResetComponent
 
   ],
   imports: [
